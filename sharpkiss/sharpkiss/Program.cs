@@ -10,6 +10,9 @@ namespace sharpkiss
     {
         static void Main(string[] args)
         {
+            string x = "hello world";
+            Console.WriteLine(x);
+            Console.ReadKey();
         }
     }
 }
