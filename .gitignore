@@ -1,2 +1,5 @@
 [Dd]ebug*/
 /sharpkiss/sharpkiss/bin
+/sharpkiss/sharpkiss/obj
+/sharpkiss/testbase.cs/bin
+/sharpkiss/testbase.cs/obj
