@@ -1,2 +1,2 @@
 # sharpkiss
-创建一流的框架，争取超越kiss框架而成为锋利的kiss
+创建一流c# asp.net mvc框架
