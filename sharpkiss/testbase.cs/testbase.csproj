@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>353ac159-8382-49ae-95a3-4681d6b1e721</ProjectGuid>
+    <ProjectGuid>{3C33F7EB-CFD7-4A39-8645-E42F09ADE53B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>testbase.cs</RootNamespace>
