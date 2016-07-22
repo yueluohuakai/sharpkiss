@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,7 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +45,165 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="kiss-core\DbProviderAttribute.cs" />
+    <Compile Include="kiss-core\IAutoStart.cs" />
+    <Compile Include="kiss-core\ITemplateEngine.cs" />
+    <Compile Include="kiss-core\ITypeFinder.cs" />
+    <Compile Include="kiss-core\Collection\HashSet.cs" />
+    <Compile Include="kiss-core\Collection\ISet.cs" />
+    <Compile Include="kiss-core\config\Attribute.cs" />
+    <Compile Include="kiss-core\config\ConfigBase.cs" />
+    <Compile Include="kiss-core\config\ConfigException.cs" />
+    <Compile Include="kiss-core\config\Configuration.cs" />
+    <Compile Include="kiss-core\config\ConfigWithProviders.cs" />
+    <Compile Include="kiss-core\config\testProperty.cs" />
+    <Compile Include="kiss-core\Ioc\IServiceContainer.cs" />
+    <Compile Include="kiss-core\Ioc\ServiceContainer.cs" />
+    <Compile Include="kiss-core\Json\JavaScriptConverter.cs" />
+    <Compile Include="kiss-core\Json\JavaScriptObjectDeserializer.cs" />
+    <Compile Include="kiss-core\Json\JavaScriptSerializer.cs" />
+    <Compile Include="kiss-core\Json\JavaScriptString.cs" />
+    <Compile Include="kiss-core\Json\JavaScriptTypeResolver.cs" />
+    <Compile Include="kiss-core\Json\ObjectConverter.cs" />
+    <Compile Include="kiss-core\Json\ScriptIgnoreAttribute.cs" />
+    <Compile Include="kiss-core\Json\SimpleTypeResolver.cs" />
+    <Compile Include="kiss-core\logging\AbstractLoggerFactory.cs" />
+    <Compile Include="kiss-core\logging\DummyLogger.cs" />
+    <Compile Include="kiss-core\logging\ILogger.cs" />
+    <Compile Include="kiss-core\logging\ILoggerFactory.cs" />
+    <Compile Include="kiss-core\plugin\AutoInitAttribute.cs" />
+    <Compile Include="kiss-core\plugin\IPlugin.cs" />
+    <Compile Include="kiss-core\plugin\IPluginDefinition.cs" />
+    <Compile Include="kiss-core\plugin\IPluginInitializer.cs" />
+    <Compile Include="kiss-core\plugin\PluginAttribute.cs" />
+    <Compile Include="kiss-core\plugin\PluginBootstrapper.cs" />
+    <Compile Include="kiss-core\plugin\PluginConfig.cs" />
+    <Compile Include="kiss-core\plugin\PluginInitializationException.cs" />
+    <Compile Include="kiss-core\plugin\Plugins.cs" />
+    <Compile Include="kiss-core\plugin\PluginSetting.cs" />
+    <Compile Include="kiss-core\Query\IQuery.cs" />
+    <Compile Include="kiss-core\Query\QueryCondition.cs" />
+    <Compile Include="kiss-core\Query\QueryException.cs" />
+    <Compile Include="kiss-core\Query\QueryFactory.cs" />
+    <Compile Include="kiss-core\Repository\ExtendedAttributes.cs" />
+    <Compile Include="kiss-core\Repository\ILinqContext.cs" />
+    <Compile Include="kiss-core\Repository\IQueryObject.cs" />
+    <Compile Include="kiss-core\Repository\IRepository.cs" />
+    <Compile Include="kiss-core\Repository\IWhere.cs" />
+    <Compile Include="kiss-core\Repository\Obj.cs" />
+    <Compile Include="kiss-core\Repository\QueryObject.cs" />
+    <Compile Include="kiss-core\Repository\RepositoryInitalizer.cs" />
+    <Compile Include="kiss-core\Repository\RepositoryPluginSetting.cs" />
+    <Compile Include="kiss-core\Security\IUserService.cs" />
+    <Compile Include="kiss-core\Security\PermissionAttribute.cs" />
+    <Compile Include="kiss-core\Security\Principal.cs" />
+    <Compile Include="kiss-core\utils\AssertUtils.cs" />
+    <Compile Include="kiss-core\utils\CrossDomain.cs" />
+    <Compile Include="kiss-core\utils\DataUtil.cs" />
+    <Compile Include="kiss-core\utils\Enum\EnumerationExtensions.cs" />
+    <Compile Include="kiss-core\utils\Enum\StringEnum.cs" />
+    <Compile Include="kiss-core\utils\ExceptionUtils.cs" />
+    <Compile Include="kiss-core\utils\FileUtil.cs" />
+    <Compile Include="kiss-core\utils\FTPClient.cs" />
+    <Compile Include="kiss-core\utils\GZipUtil.cs" />
+    <Compile Include="kiss-core\utils\Imaging\AnimatedGifDecoder.cs" />
+    <Compile Include="kiss-core\utils\Imaging\BaseImage.cs" />
+    <Compile Include="kiss-core\utils\Imaging\ExifProperty.cs" />
+    <Compile Include="kiss-core\utils\Imaging\ExifReader.cs" />
+    <Compile Include="kiss-core\utils\Imaging\GifFrame.cs" />
+    <Compile Include="kiss-core\utils\Imaging\IImage.cs" />
+    <Compile Include="kiss-core\utils\Imaging\IImageTransform.cs" />
+    <Compile Include="kiss-core\utils\Imaging\ImageUtil.cs" />
+    <Compile Include="kiss-core\utils\Imaging\ImpScaleTransform.cs" />
+    <Compile Include="kiss-core\utils\Imaging\ImpSquareScaleTransform.cs" />
+    <Compile Include="kiss-core\utils\Imaging\WatermarkPosition.cs" />
+    <Compile Include="kiss-core\utils\KeyWordFilter.cs" />
+    <Compile Include="kiss-core\utils\Net\HttpPostItem.cs" />
+    <Compile Include="kiss-core\utils\Net\HttpRequest.cs" />
+    <Compile Include="kiss-core\utils\Pinyin.cs" />
+    <Compile Include="kiss-core\utils\PropertiesParser.cs" />
+    <Compile Include="kiss-core\utils\ResourceUtil.cs" />
+    <Compile Include="kiss-core\utils\SecurityUtil.cs" />
+    <Compile Include="kiss-core\utils\Serializer.cs" />
+    <Compile Include="kiss-core\utils\ServerUtil.cs" />
+    <Compile Include="kiss-core\utils\SqlHelper.cs" />
+    <Compile Include="kiss-core\utils\StreamUtil.cs" />
+    <Compile Include="kiss-core\utils\StringUtil.cs" />
+    <Compile Include="kiss-core\utils\StringUtilExtended.cs" />
+    <Compile Include="kiss-core\utils\StringWrapper.cs" />
+    <Compile Include="kiss-core\utils\TxtLogger.cs" />
+    <Compile Include="kiss-core\utils\TypeConvertUtil.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\CachedTypeResolver.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\FatalObjectException.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\ITypeResolver.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\ObjectUtils.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\TypeRegistry.cs" />
+    <Compile Include="kiss-core\utils\TypeResolver\TypeResolver.cs" />
+    <Compile Include="kiss-core\utils\Url.cs" />
+    <Compile Include="kiss-core\utils\WebServer\ByteParser.cs" />
+    <Compile Include="kiss-core\utils\WebServer\ByteString.cs" />
+    <Compile Include="kiss-core\utils\WebServer\Connection.cs" />
+    <Compile Include="kiss-core\utils\WebServer\Host.cs" />
+    <Compile Include="kiss-core\utils\WebServer\Messages.cs" />
+    <Compile Include="kiss-core\utils\WebServer\Request.cs" />
+    <Compile Include="kiss-core\utils\WebServer\Server.cs" />
+    <Compile Include="kiss-core\utils\XmlUtil.cs" />
+    <Compile Include="kiss-core\logging\LogManager.cs" />
+    <Compile Include="kiss-core\utils\ZipStorer.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\CompareValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\CustomValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\LengthValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\NotNullValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\RangeValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\RegexValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\RequiredValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\Attributes\ValidatorAttribute.cs" />
+    <Compile Include="kiss-core\Validation\ValidationException.cs" />
+    <Compile Include="kiss-core\Validation\ValidationManager.cs" />
+    <Compile Include="kiss-core\Validation\Validators\CompareValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\CustomValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\LengthValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\NotNullValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\RangeValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\RegexValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\RequiredValidator.cs" />
+    <Compile Include="kiss-core\Validation\Validators\Validator.cs" />
+    <Compile Include="kiss-core\XmlTransform\IXmlOriginalDocumentService.cs" />
+    <Compile Include="kiss-core\XmlTransform\IXmlTransformationLogger.cs" />
+    <Compile Include="kiss-core\XmlTransform\NamedTypeFactory.cs" />
+    <Compile Include="kiss-core\XmlTransform\PositionTrackingTextReaders.cs" />
+    <Compile Include="kiss-core\XmlTransform\SR1.Designer.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlArgumentUtility.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlAttributePreservationDict.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlAttributePreservationProvider.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlAttributePreservingWriter.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlAttributeTransform.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlElementContext.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlFileInfoDocument.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlFormatter.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlLocator.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlLocators.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlNodeContext.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlNodeException.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransform.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransformableDocument.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransformation.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransformationException.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransformationLogger.cs" />
+    <Compile Include="kiss-core\XmlTransform\XmlTransforms.cs" />
+    <Compile Include="kiss-core\KissException.cs" />
+    <Compile Include="kiss-core\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="kiss-core\Resource.Designer.cs" />
+    <Compile Include="kiss-core\ServiceLocator.cs" />
+    <Compile Include="kiss-core\SingleEntryGate.cs" />
+    <Compile Include="kiss-core\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="kiss-core\XmlTransform\SR.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
