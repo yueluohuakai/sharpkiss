@@ -19,6 +19,10 @@ namespace Kiss.Config
         /// </summary>
         public static ConnectionStringSettings DefaultConnectionStringSettings { get; set; }
 
+        public void testLoadValuesFromConfigurationXml(XmlNode node) {
+            LoadValuesFromConfigurationXml(node);
+        }
+
         /// <summary>
         /// read config from xml node
         /// </summary>

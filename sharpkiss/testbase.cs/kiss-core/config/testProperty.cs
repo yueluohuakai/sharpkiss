@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kiss.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,10 +12,7 @@ namespace testbase.cs.kiss_core
     {
         public void testPropertyCS()
         {
-            foreach (PropertyInfo info in GetType().GetProperties())
-            {
-                string x = "";
-            }
+            //new ConfigBase().testLoadValuesFromConfigurationXml();
 
         }
 

@@ -3,3 +3,4 @@ E:\个人项目\sharpkiss\sharpkiss-git\sharpkiss\sharpkiss\sharpkiss\bin\Debug\
 E:\个人项目\sharpkiss\sharpkiss-git\sharpkiss\sharpkiss\sharpkiss\bin\Debug\sharpkiss.pdb
 E:\个人项目\sharpkiss\sharpkiss-git\sharpkiss\sharpkiss\sharpkiss\obj\Debug\sharpkiss.exe
 E:\个人项目\sharpkiss\sharpkiss-git\sharpkiss\sharpkiss\sharpkiss\obj\Debug\sharpkiss.pdb
+E:\个人项目\sharpkiss\sharpkiss-git\sharpkiss\sharpkiss\sharpkiss\obj\Debug\sharpkiss.csprojResolveAssemblyReference.cache
