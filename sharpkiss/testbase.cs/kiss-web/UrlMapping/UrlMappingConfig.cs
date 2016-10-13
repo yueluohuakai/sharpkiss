@@ -6,6 +6,8 @@ namespace Kiss.Web.UrlMapping
 {
     /// <summary>
     /// url重定向配置基类
+    /// jc**doing**jc
+    /// 2016-10-13 23:24:46
     /// </summary>
     [ConfigNode("urlMapping", Desc = "url重定向")]
     public class UrlMappingConfig : ConfigBase
@@ -79,3 +81,6 @@ namespace Kiss.Web.UrlMapping
         #endregion
     }
 }
+
+
+
